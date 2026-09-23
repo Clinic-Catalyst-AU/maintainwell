@@ -239,12 +239,16 @@
   .case-copy p{margin-top:20px;color:var(--muted);max-width:50ch}
   .works{list-style:none;padding:0;margin:24px 0 0;display:flex;flex-wrap:wrap;gap:8px}
   .works li{font-size:13px;letter-spacing:.02em;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--maroon);background:rgba(255,255,255,.4)}
-  .ledger{margin-top:clamp(48px,6vw,80px);border-top:1px solid var(--line)}
-  .ledger-row{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.6fr) minmax(0,.7fr);gap:24px;padding:20px 0;border-bottom:1px solid var(--line);align-items:baseline}
-  .ledger-row .where{font-family:var(--display);font-size:22px}
-  .ledger-row .what{color:var(--muted);font-size:15px}
-  .ledger-row .kind{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--brass);text-align:right}
-  @media (max-width:900px){.case{grid-template-columns:1fr}.ledger-row{grid-template-columns:1fr;gap:6px}.ledger-row .kind{text-align:left}}
+  .more{margin-top:clamp(48px,6vw,80px)}
+  .more-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:28px}
+  .more-grid figure{margin:0;display:grid;gap:12px}
+  .more-grid img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:3px}
+  .more-grid figcaption{display:grid;gap:3px}
+  .more-grid b{font-family:var(--display);font-weight:400;font-size:22px}
+  .more-grid span{font-size:14px;color:var(--muted)}
+  .more-grid small{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--brass);margin-top:4px}
+  @media (max-width:900px){.case{grid-template-columns:1fr}.more-grid{grid-template-columns:1fr 1fr}}
+  @media (max-width:560px){.more-grid{grid-template-columns:1fr}}
 
   /* testimonials */
   .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,3vw,48px)}
@@ -535,7 +539,7 @@
       </article>
     </div>
     <div class="tiers-note reveal">
-      <p>"Not everything. Just what will change the outcome."</p>
+      <p>Nina only recommends the works that will lift your sale price. Nothing gets added for the sake of it.</p>
       <a class="btn btn-primary" href="#contact">Find out what your home needs <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
   </div>
@@ -610,13 +614,15 @@
         </ul>
       </div>
     </div>
-    <div class="ledger reveal">
-      <div class="ledger-row"><span class="where">North Melbourne</span><span class="what">Painting, carpet, blinds, downlights</span><span class="kind">Pre-sale tweak</span></div>
-      <div class="ledger-row"><span class="where">North Melbourne</span><span class="what">Painting, hybrid flooring, downlights</span><span class="kind">Pre-sale tweak</span></div>
-      <div class="ledger-row"><span class="where">Williamstown</span><span class="what">External painting</span><span class="kind">Street appeal</span></div>
-      <div class="ledger-row"><span class="where">Williamstown</span><span class="what">External painting, security doors</span><span class="kind">Street appeal</span></div>
-      <div class="ledger-row"><span class="where">Albert Park</span><span class="what">Wet areas renovated for an interstate owner ahead of sale</span><span class="kind">Refresh</span></div>
-      <div class="ledger-row"><span class="where">Stevedore Street, Williamstown</span><span class="what">Full family home renovation, in progress</span><span class="kind">Transformation</span></div>
+    <div class="more reveal">
+      <p class="eyebrow">More pre-sale work</p>
+      <div class="more-grid">
+        <figure><img src="img/nm-carpet.jpg" alt="Freshly painted bedroom with new carpet, blinds and downlights" loading="lazy"><figcaption><b>North Melbourne</b><span>Painting, carpet, blinds, downlights</span><small>Pre-sale tweak</small></figcaption></figure>
+        <figure><img src="img/nm-hybrid.jpg" alt="Living room with new hybrid flooring, fresh paint and downlights" loading="lazy"><figcaption><b>North Melbourne</b><span>Painting, hybrid flooring, downlights</span><small>Pre-sale tweak</small></figcaption></figure>
+        <figure><img src="img/wtown-exterior.jpg" alt="Brick home exterior with freshly painted trims and a new black door" loading="lazy"><figcaption><b>Williamstown</b><span>External painting</span><small>Street appeal</small></figcaption></figure>
+        <figure><img src="img/wtown-security.jpg" alt="New black security doors on a freshly painted entry" loading="lazy"><figcaption><b>Williamstown</b><span>External painting, security doors</span><small>Street appeal</small></figcaption></figure>
+        <figure><img src="img/stevedore-before.jpg" alt="Original timber kitchen before renovation at Stevedore Street" loading="lazy"><figcaption><b>Stevedore Street, Williamstown</b><span>Full family home renovation. Before photo, works in progress</span><small>Transformation</small></figcaption></figure>
+      </div>
     </div>
   </div>
 </section>
