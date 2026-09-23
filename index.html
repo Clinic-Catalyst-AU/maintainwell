@@ -133,7 +133,8 @@
   .compare .divider{position:absolute;top:0;bottom:0;left:var(--pos,50%);width:2px;background:var(--plaster);transform:translateX(-1px);pointer-events:none;box-shadow:0 0 0 1px rgba(0,0,0,.15)}
   .compare .knob{position:absolute;top:50%;left:var(--pos,50%);transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;background:var(--plaster);color:var(--maroon);display:grid;place-items:center;pointer-events:none;box-shadow:0 10px 30px rgba(0,0,0,.35)}
   .compare .knob svg{width:26px;height:26px}
-  .compare input[type=range]{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize;-webkit-appearance:none;appearance:none;background:transparent}
+  .compare{touch-action:pan-y;cursor:ew-resize}
+  .compare input[type=range]{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;pointer-events:none;-webkit-appearance:none;appearance:none;background:transparent}
   .compare input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:60px;height:100%}
   .compare input[type=range]::-moz-range-thumb{width:60px;height:100%;border:0;background:transparent}
   .compare .tag{position:absolute;top:16px;padding:8px 12px;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;border-radius:2px;pointer-events:none}
@@ -777,10 +778,18 @@
   mobile.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setMenu(false)})});
 
   document.querySelectorAll('.compare').forEach(function(cmp){
-    var range=cmp.querySelector('input[type=range]');
-    function setPos(v){cmp.style.setProperty('--pos',v+'%')}
-    range.addEventListener('input',function(){setPos(range.value)});
-    setPos(range.value);
+    var range=cmp.querySelector('input[type=range]'),down=false;
+    function setPos(v){v=Math.max(0,Math.min(100,v));cmp.style.setProperty('--pos',v+'%');range.value=Math.round(v)}
+    function fromEvent(e){var r=cmp.getBoundingClientRect();setPos((e.clientX-r.left)/r.width*100)}
+    cmp.addEventListener('pointerdown',function(e){down=true;if(cmp.setPointerCapture){try{cmp.setPointerCapture(e.pointerId)}catch(x){}}fromEvent(e);e.preventDefault()});
+    cmp.addEventListener('pointermove',function(e){if(down){fromEvent(e);e.preventDefault()}});
+    function up(){down=false}
+    cmp.addEventListener('pointerup',up);cmp.addEventListener('pointercancel',up);cmp.addEventListener('lostpointercapture',up);
+    cmp.addEventListener('touchstart',function(e){if(!window.PointerEvent){var t=e.touches[0];down=true;fromEvent(t);e.preventDefault()}},{passive:false});
+    cmp.addEventListener('touchmove',function(e){if(!window.PointerEvent&&down){fromEvent(e.touches[0]);e.preventDefault()}},{passive:false});
+    cmp.addEventListener('touchend',up);
+    range.addEventListener('input',function(){setPos(parseFloat(range.value))});
+    setPos(parseFloat(range.value));
   });
 
   var items=document.querySelectorAll('.reveal');
