@@ -211,21 +211,21 @@
   .stack-cap span{font-size:14px;color:var(--muted)}
   .stack-hint{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:600;margin-top:14px}
   .stack{position:relative;aspect-ratio:4/5;max-height:720px;width:100%;perspective:1400px;touch-action:pan-y;user-select:none;-webkit-user-select:none}
-  .card{position:absolute;inset:0;border-radius:4px;overflow:hidden;background:var(--linen);box-shadow:0 30px 60px -30px rgba(42,14,14,.55);transform-origin:50% 110%;transition:transform .55s cubic-bezier(.2,.7,.2,1),opacity .45s ease;will-change:transform;cursor:grab}
-  .card img{width:100%;height:100%;object-fit:cover;pointer-events:none}
-  .card figcaption{position:absolute;left:16px;bottom:16px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--plaster);background:rgba(42,14,14,.65);padding:7px 11px;border-radius:2px}
-  .card.d0{z-index:9;transform:none}
-  .card.d0:active{cursor:grabbing}
-  .card.d1{z-index:8;transform:translate(6%,-1%) rotate(4deg) scale(.96)}
-  .card.d2{z-index:7;transform:translate(-5%,-2%) rotate(-3.5deg) scale(.93)}
-  .card.d3{z-index:6;transform:translate(2%,-3%) rotate(1.5deg) scale(.9)}
-  .card.dn{z-index:1;transform:translate(0,-3%) scale(.88);opacity:0}
-  .card.dragging{transition:none}
-  .card.fly-l{transform:translate(-130%,-6%) rotate(-18deg)!important;opacity:0;z-index:10}
-  .card.fly-r{transform:translate(130%,-6%) rotate(18deg)!important;opacity:0;z-index:10}
-  .card.enter-l{transform:translate(-130%,-6%) rotate(-18deg);opacity:0;transition:none}
+  .sc{position:absolute;inset:0;border-radius:4px;overflow:hidden;background:var(--linen);box-shadow:0 30px 60px -30px rgba(42,14,14,.55);transform-origin:50% 110%;transition:transform .55s cubic-bezier(.2,.7,.2,1),opacity .45s ease;will-change:transform;cursor:grab}
+  .sc img{width:100%;height:100%;object-fit:cover;pointer-events:none}
+  .sc figcaption{position:absolute;left:16px;bottom:16px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--plaster);background:rgba(42,14,14,.65);padding:7px 11px;border-radius:2px}
+  .sc.d0{z-index:9;transform:none}
+  .sc.d0:active{cursor:grabbing}
+  .sc.d1{z-index:8;transform:translate(6%,-1%) rotate(4deg) scale(.96)}
+  .sc.d2{z-index:7;transform:translate(-5%,-2%) rotate(-3.5deg) scale(.93)}
+  .sc.d3{z-index:6;transform:translate(2%,-3%) rotate(1.5deg) scale(.9)}
+  .sc.dn{z-index:1;transform:translate(0,-3%) scale(.88);opacity:0}
+  .sc.dragging{transition:none}
+  .sc.fly-l{transform:translate(-130%,-6%) rotate(-18deg)!important;opacity:0;z-index:10}
+  .sc.fly-r{transform:translate(130%,-6%) rotate(18deg)!important;opacity:0;z-index:10}
+  .sc.enter-l{transform:translate(-130%,-6%) rotate(-18deg);opacity:0;transition:none}
   @media (max-width:900px){.finish{grid-template-columns:1fr}.stack{max-height:none;aspect-ratio:4/5}}
-  @media (prefers-reduced-motion:reduce){.card{transition:opacity .3s ease}.card.d1,.card.d2,.card.d3{transform:none;opacity:0}}
+  @media (prefers-reduced-motion:reduce){.sc{transition:opacity .3s ease}.sc.d1,.sc.d2,.sc.d3{transform:none;opacity:0}}
 
   /* results */
   .results{background:var(--linen)}
@@ -580,15 +580,15 @@
       <p class="stack-hint">Flick the photo, or use the arrows</p>
     </div>
     <div class="stack reveal" id="stack" aria-roledescription="carousel" aria-label="Finished details">
-      <figure class="card" data-title="Joinery" style="margin:0"><img src="img/d-window.jpg" alt="Timber-lined window nook with a stone bench" loading="lazy"><figcaption>Joinery</figcaption></figure>
-      <figure class="card" data-title="Fireplace" style="margin:0"><img src="img/d-mantel.jpg" alt="Black marble mantel against exposed brick" loading="lazy"><figcaption>Fireplace</figcaption></figure>
-      <figure class="card" data-title="Bathroom" style="margin:0"><img src="img/d-shower.jpg" alt="White subway-tiled shower with a niche" loading="lazy"><figcaption>Bathroom</figcaption></figure>
-      <figure class="card" data-title="Powder room" style="margin:0"><img src="img/d-terrazzo.jpg" alt="Terrazzo powder room with black basin and walnut vanity" loading="lazy"><figcaption>Powder room</figcaption></figure>
-      <figure class="card" data-title="Ceiling rose" style="margin:0"><img src="img/d-rose.jpg" alt="Restored plaster ceiling rose" loading="lazy"><figcaption>Ceiling rose</figcaption></figure>
-      <figure class="card" data-title="Bluestone" style="margin:0"><img src="img/d-bluestone.jpg" alt="Bluestone fireplace surround" loading="lazy"><figcaption>Bluestone</figcaption></figure>
-      <figure class="card" data-title="Styled for photography" style="margin:0"><img src="img/d-bedroom.jpg" alt="Styled bedroom with a marble fireplace and built-in robes" loading="lazy"><figcaption>Styled for photography</figcaption></figure>
-      <figure class="card" data-title="Kitchen" style="margin:0"><img src="img/d-stove.jpg" alt="Timber rangehood over a stone benchtop" loading="lazy"><figcaption>Kitchen</figcaption></figure>
-      <figure class="card" data-title="Cabinetry" style="margin:0"><img src="img/d-green.jpg" alt="Deep green kitchen cabinetry with a yellow chair" loading="lazy"><figcaption>Cabinetry</figcaption></figure>
+      <figure class="sc" data-title="Joinery" style="margin:0"><img src="img/d-window.jpg" alt="Timber-lined window nook with a stone bench" loading="lazy"><figcaption>Joinery</figcaption></figure>
+      <figure class="sc" data-title="Fireplace" style="margin:0"><img src="img/d-mantel.jpg" alt="Black marble mantel against exposed brick" loading="lazy"><figcaption>Fireplace</figcaption></figure>
+      <figure class="sc" data-title="Bathroom" style="margin:0"><img src="img/d-shower.jpg" alt="White subway-tiled shower with a niche" loading="lazy"><figcaption>Bathroom</figcaption></figure>
+      <figure class="sc" data-title="Powder room" style="margin:0"><img src="img/d-terrazzo.jpg" alt="Terrazzo powder room with black basin and walnut vanity" loading="lazy"><figcaption>Powder room</figcaption></figure>
+      <figure class="sc" data-title="Ceiling rose" style="margin:0"><img src="img/d-rose.jpg" alt="Restored plaster ceiling rose" loading="lazy"><figcaption>Ceiling rose</figcaption></figure>
+      <figure class="sc" data-title="Bluestone" style="margin:0"><img src="img/d-bluestone.jpg" alt="Bluestone fireplace surround" loading="lazy"><figcaption>Bluestone</figcaption></figure>
+      <figure class="sc" data-title="Styled for photography" style="margin:0"><img src="img/d-bedroom.jpg" alt="Styled bedroom with a marble fireplace and built-in robes" loading="lazy"><figcaption>Styled for photography</figcaption></figure>
+      <figure class="sc" data-title="Kitchen" style="margin:0"><img src="img/d-stove.jpg" alt="Timber rangehood over a stone benchtop" loading="lazy"><figcaption>Kitchen</figcaption></figure>
+      <figure class="sc" data-title="Cabinetry" style="margin:0"><img src="img/d-green.jpg" alt="Deep green kitchen cabinetry with a yellow chair" loading="lazy"><figcaption>Cabinetry</figcaption></figure>
     </div>
   </div>
 </section>
@@ -804,7 +804,7 @@
   /* card stack */
   var stack=document.getElementById('stack');
   if(stack){
-    var cards=Array.prototype.slice.call(stack.querySelectorAll('.card'));
+    var cards=Array.prototype.slice.call(stack.querySelectorAll('.sc'));
     var order=cards.map(function(_,i){return i});
     var busy=false,total=cards.length;
     var cur=document.getElementById('stackCur'),tot=document.getElementById('stackTotal'),ttl=document.getElementById('stackTitle'),note=document.getElementById('stackNote');
@@ -845,7 +845,7 @@
     stack.setAttribute('tabindex','0');
     var drag=null;
     stack.addEventListener('pointerdown',function(e){
-      var top=cards[order[0]];if(busy||e.target.closest('.card')!==top)return;
+      var top=cards[order[0]];if(busy||e.target.closest('.sc')!==top)return;
       drag={x:e.clientX,y:e.clientY,dx:0,el:top};top.classList.add('dragging');top.setPointerCapture&&top.setPointerCapture(e.pointerId);
     });
     stack.addEventListener('pointermove',function(e){
